@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt_br">
+<html lang="pt-br">
     <head>
         <meta charset="utf-8">
         <title>bikecraft - Produtos - Conheça as linhas Passeio, Retrô e Esporte</title>
@@ -15,13 +15,15 @@
 
         <link rel="shortcut icon" href="favicon.ico">
 
-
+        <!--
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/grid.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style-raw.css">
         <link rel="stylesheet" href="css/produtos.css">
         <link rel="stylesheet" href="css/responsivo.css">
+        -->
+        <link rel="stylesheet" href="css/style.css">
         <script>document.documentElement.classList.add("js");</script>
 
     </head>
@@ -141,11 +143,11 @@
                     <label for="telefone">Telefone</label>
                     <input type="text" id="telefone" name="telefone">
 
-                    <label for="" class="nao-aparece">Se você não é um robo deixe em branco</label>
-                    <input type="text" class="nao-aparece" name="leaveblank">
+                    <label for="leaveblank" class="nao-aparece">Se você não é um robo deixe em branco</label>
+                    <input type="text" id="leaveblank" class="nao-aparece" name="leaveblank">
 
-                    <label for="" class="nao-aparece">Se você não é um robo, não mude este campo</label>
-                    <input type="text" class="nao-aparece" name="dontchange" value="http://">
+                    <label for="dontchange" class="nao-aparece">Se você não é um robo, não mude este campo</label>
+                    <input type="text" id="dontchange" class="nao-aparece" name="dontchange" value="http://">
 
                     <label for="mensagem">Mensagem</label>
                     <textarea name="mensagem" id="mensagem" required></textarea>
@@ -172,13 +174,13 @@
         </section>
 
         <!-- footer -->
-        <section class="quebra">
+        <div class="quebra">
             
             <blockquote class="container quote-externo">
                 <p>"o verdadeiro segredo da felicidade está em ter um genuíno interesse por todos os detalhes da vida cotidiana."</p>
                 <cite>WILLIAN MORRIS</cite>
             </blockquote>
-        </section>
+        </div>
 
         <footer>
             <div class="footer">
