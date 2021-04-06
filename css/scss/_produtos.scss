@@ -9,15 +9,23 @@
 }
 
 .produto_item h2 {
-    font-size: 36px;
     text-transform: uppercase;
     letter-spacing: .1em;
     font-weight: bold;
     position: relative;
     top: -180px;
     text-align: center;
-    color: #fff;
+    color: $white;
     margin-bottom: -56px;
+    @include type-1(36);
+    @include device($device-tablet) {
+        top: -150px;
+		margin-bottom: -56px;
+    }
+    @include device($device-mobile) {
+        top: -100px;
+		margin-bottom: -68px;
+    }
 }
 
 .produto_item h2:after, .produto_item h2:before { 
@@ -25,13 +33,19 @@
     display: block;
     width: 60px;
     height: 3px;
-    background: #fff;
+    background: $white;
     margin: 6px auto 8px auto;
 }
 
 .produto_icone {
-    background: #000;
+    background: $black;
     padding: 70px 0;
+    @include device($device-tablet) {
+        padding: 41px 0;
+    }
+    @include device($device-mobile) {
+        padding: 41px 0;
+    }
 }
 
 .produto_icone img {
@@ -39,30 +53,47 @@
 }
 
 .produto_info {
-    background: #000;
+    background: $black;
 }
 
 .produto_info p {
-    color: #fff;
-    font-size: 18px;
-    line-height: 25px;
+    color: $white;
     height: 160px;
     padding: 30px 40px;
+    @include type-1(18);
+    @include device($device-tablet) {
+        height: 122px;
+		padding: 20px 30px;
+		@include type-1(14);
+    }
+    @include device($device-mobile) {
+        @include type-1(14);
+		height: auto;
+		padding: 20px 30px;
+    }
     
 }
 
 .produto_info ul li {
-    background: #fec63e;
+    background: $amarelo;
     text-transform: uppercase;
-    font-size: 18px;
-    line-height: 20px;
     font-weight: bold;
     float: left;
     width: 229px;
     height: 59px;
     text-align: center;
     padding-top: 16px;
-
+    @include type-1(18);
+    @include device($device-tablet) {
+        width: 181px;
+		height: 49px;
+    }
+    @include device($device-tablet) {
+        width: 149px;
+		height: 49px;
+		@include type-1(14);
+		padding-top: 14px;
+    }
 }
 
 .produto_info ul li:nth-child(1), .produto_info ul li:nth-child(2) {
@@ -77,44 +108,44 @@
 /* Orcamento */
 
 .orcamento {
-    background: #000;
+    background: $black;
     width: 100%;
     margin-top: 60px;
     padding: 40px 0;
 }
 
 .orcamento h2 {
-    color: #fec63e;
+    color: $amarelo;
 }
 
 .orcamento h2:after {
-    background: #fec63e;
+    background: $amarelo;
 }
 
 .form {
     padding-right: 60px;
+    @include device($device-mobile) {
+        padding-right: 0px;
+    }
 }
 
 .form label{
     display: block;
-    color: #fff;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 18px;
-    line-height: 25px;
+    color: $white;
     margin-bottom: 4px;
+    @include type-2(18);
 }
 
 .form input {
     display: block;
     width: 100%;
-    border: 4px solid #fec63e;
+    border: 4px solid $amarelo;
     background: none;
-    color: #fff;
+    color: $white;
     padding: 7px 10px;
     margin-bottom: 10px;
     outline: none;
-    font-size: 14px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    @include type-2(14);
 
 }
 
@@ -122,14 +153,13 @@
     display: block;
     width: 100%;
     height: 120px;
-    border: 4px solid #fec63e;
+    border: 4px solid $amarelo;
     background: none;
-    color: #fff;
+    color: $white;
     padding: 7px 10px;
     margin-bottom: 20px;
     outline: none;
-    font-size: 14px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    @include type-2(14);
 }
 
 .form button {
@@ -138,22 +168,19 @@
 }
 
 .orcamento_dados {
-    color: #fff;
+    color: $white;
 }
 
 .orcamento_dados h3{
-    font-size: 18px;
-    line-height: 25px;
     text-transform: uppercase;
     font-weight: bold;
-    color: #fec63e;
+    color: $amarelo;
+    @include type-1(18);
 }
 
 .orcamento_dados span {
     display: block;
-    font-size: 18px;
-    line-height: 30px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    @include type-2(18);
 }
 
 .orcamento_dados span:nth-of-type(even) {
@@ -162,12 +189,14 @@
 
 .orcamento_dados ul {
     padding-right: 60px;
+    @include device($device-mobile) {
+        padding-right: 0px;
+    }
 }
 
 .orcamento_dados ul li {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 14px;
     padding: 10px 15px;
+    @include type-2(14);
 }
 
 .orcamento_dados ul li:nth-child(odd) {

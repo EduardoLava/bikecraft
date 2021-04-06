@@ -1,3 +1,4 @@
+
 /*Estilos gerais*/
 
 body {
@@ -5,9 +6,7 @@ body {
 }
 
 p {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 14px;
-    line-height: 20px;
+    @include type-2(14);
 }
 
 img {
@@ -16,35 +15,33 @@ img {
 }
 
 .btn {
-    border: 3px solid #fec63e;
+    border: 3px solid $amarelo;
     padding: 10px 30px;
-    color: #fec63e;
-    font-size: 14px;
-    line-height: 20px;
+    color: $amarelo;
+    @include type-1(14);
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: .1em;
 }
 
 .btn:hover {
-    color: #FFF;
-    border-color: #FFF;
+    color: $white;
+    border-color: $white;
 }
 
 .btn.btn_preto:hover {
-    color: #000;
-    border-color: #000;
+    color: $black;
+    border-color: $black;
 }
 
 .subtitulo {
-    font-size: 24px;
-    line-height: 30px;
     font-weight: bold;
     letter-spacing: .1em;
-    color: #000;
+    color: $black;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 40px;
+    @include type-1(24);
 }
 
 .subtitulo:after {
@@ -52,19 +49,18 @@ img {
     display: block;
     width: 60px;
     height: 3px;
-    background: #000;
+    background: $black;
     margin: 8px auto;
 }
 
 
 .subtitulo-interno {
-    font-size: 24px;
-    line-height: 30px;
     font-weight: bold;
     letter-spacing: .1em;
-    color: #000;
+    color: $black;
     text-transform: uppercase;
     margin-bottom: 20px;
+    @include type-1(24);
 }
 
 .subtitulo-interno:after {
@@ -72,7 +68,7 @@ img {
     display: block;
     width: 60px;
     height: 3px;
-    background: #000;
+    background: $black;
     margin: 8px 0;
 }
 
@@ -81,39 +77,58 @@ img {
 
 .header {
     width: 100%;
-    background: #fec63e;
+    background: $amarelo;
     padding: 15px 0;
     position: fixed;
     top: 0;
     z-index: 10;
+    @include device($device-mobile) {
+        position: relative;
+		padding-bottom: 0;
+    }
+}
+
+.header img {
+    @include device($device-mobile) {
+        margin: 0 auto 10px auto;
+    }
 }
 
 .header_menu {
     text-align: right;
+    @include device($device-mobile) {
+        text-align: center;
+    }
 }
 
 .header_menu ul li {
     display: inline-block;
     margin-left: 25px;
     margin-top: 20px;
+    @include device($device-mobile) {
+        margin: 5px;
+    }
 }
 
 .header_menu ul li a {
-    color: #000;
+    color: $black;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: .1em;
-    font-size: 14px;
-    line-height: 20px;
+    letter-spacing: .1em;   
     padding: 10px 0;
-}
-
-.header_menu ul li a:hover {
-    color: #FFF;
-}
-
-.header_menu ul li a.menu_ativo  {
-    color: #FFF;
+    @include type-1(14);
+    @include device($device-mobile) {
+        border: 4px solid $black;
+		width: 136px;
+		display: block;
+		float: left;
+    }
+    &:hover, &.menu_ativo {
+        color: $white;
+        @include device($device-mobile) {
+            border-color: $white;
+        }
+    }
 }
 
 /*Introducao*/
@@ -126,13 +141,22 @@ img {
     margin-top: 92px;
     text-align: center;
     padding-top: 80px;
+    @include device($device-mobile) {
+        margin-top: 0px;
+		padding-top: 40px;
+		background: url("../img/bg-mobile.jpg") no-repeat center;
+		background-size: cover;
+    }
 }
 
 .introducao h1 {
-    font-size: 48px;
-    color: #FFF;
+    color: $white;
     font-weight: bold;
     text-transform: uppercase;
+    @include type-1(48);
+    @include device($device-mobile) {
+        @include type-1(36);
+    }
 }
 
 
@@ -140,7 +164,7 @@ img {
     max-width: 360px;
     margin: 0 auto;
     margin-bottom: 40px;
-    color: white;
+    color: $white;
 }
 
 .quote-externo p {
@@ -152,15 +176,15 @@ img {
     display: block;
     width: 60px;
     height: 3px;
-    background: #FFF;
+    background: $white;
     margin: 14px auto 10px auto;
 }
 
 .quote-externo cite {
     font-style: normal;
     font-weight: bold;
-    font-size: 14px;
     letter-spacing: .1em;
+    @include type-1(14);
 }
 
 /*introducao interna */
@@ -170,14 +194,17 @@ img {
     margin-top: 92px;
     height: 160px;
     text-align: center;
-    color: #FFF;
+    color: $white;
     padding-top: 30px;
+    @include device($device-mobile) {
+        margin-top: 0px;
+    }
 }
 
 .introducao-interna h1 {
-    font-size: 36px;
     font-weight: bold;
     text-transform: uppercase;
+    @include type-1(36);
 }
 
 .introducao-interna h1:after {
@@ -185,7 +212,7 @@ img {
     display: block;
     width: 60px;
     height: 3px;
-    background: #FFF;
+    background: $white;
     margin: 6px auto 10px auto;
 }
 
@@ -196,7 +223,7 @@ img {
 }
 
 .produtos_lista li {
-    background: #fec63e;
+    background: $amarelo;
     text-align: center;
 }
 
@@ -205,12 +232,11 @@ img {
 }
 
 .produtos_lista li h3 {
-    font-size: 18px;
-    line-height: 25px;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: .1em;
     margin-top: 20px;
+    @include type-1(18);
 }
 
 .produtos_lista li h3::after {
@@ -218,7 +244,7 @@ img {
     display: block;
     width: 60px;
     height: 3px;
-    background: #000;
+    background: $black;
     margin: 2px auto;
 }
 
@@ -227,7 +253,7 @@ img {
 }
 
 .produtos_icone {
-    background: #000;
+    background: $black;
     padding: 20px;
 }
 
@@ -235,6 +261,9 @@ img {
     text-align: center;
     padding-top: 40px;
     clear: both;
+    @include device($device-mobile) {
+        padding-top: 10px;
+    }
 }
 
 .call p {
@@ -245,16 +274,16 @@ img {
 
 .portifolio {
     width: 100%;
-    background: #000;
+    background: $black;
     padding: 40px 0;
 }
 
 .portifolio .subtitulo {
-    color: #fec63e;
+    color: $amarelo;
 }
 
 .portifolio .subtitulo:after {
-    background: #fec63e;
+    background: $amarelo;
 }
 
 .portifolio_lista li :last-child {
@@ -262,25 +291,30 @@ img {
 }
 
 .portifolio .call p {
-    color: #FFF;
+    color: $white;
 }
 
 /* qualidade*/
 
 .qualidade {
     padding: 60px 0;
-}
-
-.qualidade:after {
-    content: "";
-    width: 634px;
-    height: 83px;
-    display: block;
-    background: url("../img/linhas.svg") no-repeat center;
-    position: absolute;
-    top: 209px;
-    right: 162px;
-    z-index: -1;
+    &:after {
+        content: "";
+        width: 634px;
+        height: 83px;
+        display: block;
+        background: url("../img/linhas.svg") no-repeat center;
+        position: absolute;
+        top: 209px;
+        right: 162px;
+        z-index: -1;
+        @include device($device-tablet) {
+            right: 66px;
+        }
+        @include device($device-mobile) {
+            display: none;
+        }
+    }
 }
 
 .qualidade img {
@@ -295,15 +329,17 @@ img {
 .qualidade_lista li {
     text-align: center;
     padding: 0 40px;
+    @include device($device-tablet) {
+        padding: 0 10px;
+    }
 }
 
 .qualidade_lista li h3 {
-    font-size: 18px;
-    line-height: 25px;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: .1em;
     margin-top: 20px;
+    @include type-1(18);
 }
 
 .qualidade_lista li h3::after {
@@ -311,7 +347,7 @@ img {
     display: block;
     width: 60px;
     height: 3px;
-    background: #000;
+    background: $black;
     margin: 6px auto;
 }
 
@@ -335,18 +371,17 @@ img {
 
 .footer {
     width: 100%;
-    background: #000;
-    color: #FFF;
+    background: $black;
+    color: $white;
     padding: 20px 0;
 }
 
-.footer h3 {
-    font-size: 18px;
-    line-height: 25px;
-    color: #fec63e;
+.footer h3 {   
+    color: $amarelo;
     text-transform: uppercase;
     letter-spacing: .1em;
     font-weight: bold;
+    @include type-1(18);
 }
 
 .footer h3:after {
@@ -354,7 +389,7 @@ img {
     display: block;
     width: 60px;
     height: 3px;
-    background: #fec63e;
+    background: $amarelo;
     margin: 6px 0 12px 0;
 }
 
@@ -363,9 +398,7 @@ img {
 }
 
 .footer_contato ul li{
-    font-size: 14px;
-    line-height: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    @include type-2(14);
 }
 
 .footer_redes ul li {
@@ -374,18 +407,30 @@ img {
 }
 
 .footer_redes ul li a {
-    border: 3px solid #fec63e;
+    border: 3px solid $amarelo;
     display: block;
     padding: 10px;
+    color: $amarelo;
+    @include device($device-tablet) {
+        padding: 6px;
+    }
+}
+
+.footer_redes ul li a img {
+
+    @include device($device-tablet) {
+        width: 26px;
+        height: 26px;
+    }
 }
 
 .footer_redes ul li a:hover {
-    border-color: #FFF;
+    border-color: $white;
 }
 
 .copy {
     width: 100%;
-    background: #fec63e;
+    background: $amarelo;
     padding: 20px 0;
 }
 
@@ -427,7 +472,7 @@ img {
 
 
 .js [data-slide-nav] button.active {
-    background: #fec63e;
+    background: $amarelo;
 }
 
 .js [data-anime] {
